@@ -138,8 +138,7 @@ app.delete('/pets/:id', checkExistsUserAccount, (req:Request, res:Response)=>{
     }
     const index = petshop.pets.findIndex((valor:petshopType["pets"][number])=> valor.id === id);
     petshop.pets.splice(index, 1);
-    res.status(200).json({mensagem: "PET removido com sucesso"})
-    res.json(petshop.pets);
+    res.status(200).json({mensagem: "PET removido com sucesso", pets:petshop.pets})
 })
 
 app.listen(porta, ()=>{
